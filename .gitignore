@@ -8,3 +8,4 @@ results/
 **/*.tgz
 **/*.tar.gz
 **/*.zip
+flamework.build

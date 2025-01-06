@@ -33,7 +33,8 @@
     "!**/*.tsbuildinfo",
     "!out/__tests__",
     "!out/__tests__/**/*",
-    "!out/jest.config.luau"
+    "!out/jest.config.luau",
+    "!flamework.build"
   ],
   "publishConfig": {
     "access": "public"
