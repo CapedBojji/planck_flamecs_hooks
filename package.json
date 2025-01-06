@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/planck-flamecs-hooks",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A @rbxts/planck plugin that provides support for @rbxts/flamecs hooks.",
   "main": "out/init.lua",
   "scripts": {
