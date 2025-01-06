@@ -34,11 +34,11 @@ export class PlanckFlamecsHooksPlugin implements Plugin {
 	}
 
 	private updatePhase(phase: Phase): void {
-		const data = this.phaseData.get(phase);
+		let data = this.phaseData.get(phase);
 		if (data === undefined) {
 			this.setupPhase(phase);
+			data = this.phaseData.get(phase)!;
 		}
-		assert(data !== undefined, "Phase data not found"); // Should never happen
 		data.deltaTime = data.currentTime - data.lastTime;
 		data.lastTime = data.currentTime;
 		data.currentTime = os.clock();
