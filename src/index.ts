@@ -1,5 +1,7 @@
 import { Phase, Plugin, Scheduler, SystemFn } from "@rbxts/planck/out/types";
 import { secondaryStack, start } from "./topo";
+export * from "./hooks"
+export * from "./topo"
 
 interface ModuleInfo {
 	nameToSystem: Map<string, SystemFn<unknown[]>>;
@@ -10,7 +12,7 @@ interface HookStorage<T> {
     cleanup?: Cleanup<T>;
     states: Map<string, T>;
 }
-class PlanckFlamecsHooksPlugin implements Plugin {
+export class PlanckFlamecsHooksPlugin implements Plugin {
 	private readonly systemData: Map<SystemFn<unknown[]>, {
 		system: SystemFn<unknown[]>;
 		deltaTime: number;
@@ -91,5 +93,3 @@ class PlanckFlamecsHooksPlugin implements Plugin {
 		})
 	}
 }
-
-export = PlanckFlamecsHooksPlugin;
