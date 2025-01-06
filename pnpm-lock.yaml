@@ -8,12 +8,15 @@ importers:
 
   .:
     dependencies:
-      '@rbxts/flamecs':
-        specifier: 0.1.0-rc.10
-        version: 0.1.0-rc.10(typescript@5.7.2)
+      '@flamework/core':
+        specifier: ^1.2.3
+        version: 1.2.3
       '@rbxts/planck':
         specifier: ^0.1.2
         version: 0.1.2
+      rbxts-transformer-flamework:
+        specifier: ^1.2.3
+        version: 1.2.3(typescript@5.7.2)
     devDependencies:
       '@rbxts/compiler-types':
         specifier: 3.0.0-types.0
@@ -126,13 +129,6 @@ packages:
 
   '@rbxts/compiler-types@3.0.0-types.0':
     resolution: {integrity: sha512-VGOHJPoL7+56NTatMGqQj3K7xWuzEV+aP4QD5vZiHu+bcff3kiTmtoadaF6NkJrmwfFAvbsd4Dg764ZjWNceag==}
-
-  '@rbxts/flamecs@0.1.0-rc.10':
-    resolution: {integrity: sha512-Mr2TqiBdPg1odq/4pBCxRMDxMXR4CRBZObLrpgRE6hnLzWSDCUi+V/72+v4KpT1P0v5ivvdIZuNMtn4OIIl/hg==}
-
-  '@rbxts/jecs@https://codeload.github.com/Ukendio/jecs/tar.gz/509048b9df3db1a6f53b1aac885eb5c79f5987bc':
-    resolution: {tarball: https://codeload.github.com/Ukendio/jecs/tar.gz/509048b9df3db1a6f53b1aac885eb5c79f5987bc}
-    version: 0.5.1
 
   '@rbxts/maid@1.1.0':
     resolution: {integrity: sha512-bVWXZ0p2M3OJzPzvN5fY0T4s37ezUMY7EX31Xspp7Ds4C/K9yE4MHMRXjtlNvsYVPmoc5tdhAbpZY02Veix5lg==}
@@ -981,16 +977,6 @@ snapshots:
   '@pkgr/core@0.1.1': {}
 
   '@rbxts/compiler-types@3.0.0-types.0': {}
-
-  '@rbxts/flamecs@0.1.0-rc.10(typescript@5.7.2)':
-    dependencies:
-      '@flamework/core': 1.2.3
-      '@rbxts/jecs': https://codeload.github.com/Ukendio/jecs/tar.gz/509048b9df3db1a6f53b1aac885eb5c79f5987bc
-      rbxts-transformer-flamework: 1.2.3(typescript@5.7.2)
-    transitivePeerDependencies:
-      - typescript
-
-  '@rbxts/jecs@https://codeload.github.com/Ukendio/jecs/tar.gz/509048b9df3db1a6f53b1aac885eb5c79f5987bc': {}
 
   '@rbxts/maid@1.1.0': {}
 

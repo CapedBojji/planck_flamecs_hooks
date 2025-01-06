@@ -1,5 +1,5 @@
-import { start } from "@rbxts/flamecs";
-import { Phase, Plugin, Scheduler, SystemFn, SystemInfo } from "@rbxts/planck/out/types";
+import { Phase, Plugin, Scheduler, SystemFn } from "@rbxts/planck/out/types";
+import { secondaryStack, start } from "./topo";
 
 interface ModuleInfo {
 	nameToSystem: Map<string, SystemFn<unknown[]>>;
@@ -15,6 +15,7 @@ class PlanckFlamecsHooksPlugin implements Plugin {
 		system: SystemFn<unknown[]>;
 		deltaTime: number;
 		logs: unknown[];
+		data: Record<string, HookStorage<unknown>>;
 	}> = new Map();
 	private readonly phaseData: Map<Phase, {
 		lastTime: number;
@@ -54,7 +55,7 @@ class PlanckFlamecsHooksPlugin implements Plugin {
 		schedular._addHook(schedular.Hooks.SystemAdd, (info) => {
 			const SystemInfo = info.system;
 			const system = SystemInfo.system;
-			this.systemData.set(system, { system, deltaTime: 0, logs: [] });
+			this.systemData.set(system, { system, deltaTime: 0, logs: [], data: {} });
 		})
 		schedular._addHook(schedular.Hooks.SystemRemove, (info) => {
 			const SystemInfo = info.system;
@@ -81,9 +82,11 @@ class PlanckFlamecsHooksPlugin implements Plugin {
 			assert(data !== undefined, "System data not found"); // Should never happen
 			data.deltaTime = phaseData.deltaTime;
 			return () => {
-				start(data as unknown as Record<string, HookStorage<unknown>>, () => {
+				secondaryStack.push(data)
+				start(data.data, () => {
 					nextFn();
 				})
+				secondaryStack.pop()
 			}
 		})
 	}

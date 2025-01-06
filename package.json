@@ -52,7 +52,8 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@rbxts/flamecs": "0.1.0-rc.10",
-    "@rbxts/planck": "^0.1.2"
+    "@flamework/core": "^1.2.3",
+    "@rbxts/planck": "^0.1.2",
+    "rbxts-transformer-flamework": "^1.2.3"
   }
 }
