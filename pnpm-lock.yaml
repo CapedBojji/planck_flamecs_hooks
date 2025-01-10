@@ -12,8 +12,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       '@rbxts/planck':
-        specifier: ^0.1.2
-        version: 0.1.2
+        specifier: 0.1.3-rc.0
+        version: 0.1.3-rc.0
       rbxts-transformer-flamework:
         specifier: ^1.2.3
         version: 1.2.3(typescript@5.7.2)
@@ -136,8 +136,8 @@ packages:
   '@rbxts/object-utils@1.0.4':
     resolution: {integrity: sha512-dLLhf022ipV+9i910sOE7kl9losKHoon0WgeerHqVMQA5EYsLUsVT2AxhJuhk8MiDn5oJ2GiFofE/LadY9TpJQ==}
 
-  '@rbxts/planck@0.1.2':
-    resolution: {integrity: sha512-b5nWhMlpPjdP/qxI70Zi9xd7WuhKvLLzjHWJC13/lBWeO08+yHSTsMdOdJ78djLyRPwDyWLmcyJmpJYDwqw1lQ==}
+  '@rbxts/planck@0.1.3-rc.0':
+    resolution: {integrity: sha512-eakuCqoD48Er0vjrvzaRSfz0IpprVCwjYoOZMG0NKvazdYo33NbGaI4DVn83bE6I460YhT0LfERqJqXRZ4pjGg==}
 
   '@rbxts/services@1.5.5':
     resolution: {integrity: sha512-Hu7QH2ecefS60zpakKG3T2vgABydoOJqpSG7nXr59wFAbPk/cA+OcsntYPHUWyHAat0VFGZ5jNZLTLdiqfssvg==}
@@ -982,7 +982,7 @@ snapshots:
 
   '@rbxts/object-utils@1.0.4': {}
 
-  '@rbxts/planck@0.1.2': {}
+  '@rbxts/planck@0.1.3-rc.0': {}
 
   '@rbxts/services@1.5.5': {}
 

@@ -1,5 +1,7 @@
-import { Phase, Plugin, Scheduler, SystemFn } from "@rbxts/planck/out/types";
+import { Plugin, SystemFn } from "@rbxts/planck/out/types";
 import { secondaryStack, start } from "./topo";
+import Scheduler from "@rbxts/planck/out/Scheduler";
+import Phase from "@rbxts/planck/out/Phase";
 export * from "./hooks"
 export * from "./topo"
 

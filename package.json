@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/planck-flamecs-hooks",
-  "version": "0.0.6",
+  "version": "0.0.7-rc.0",
   "description": "A @rbxts/planck plugin that provides support for @rbxts/flamecs hooks.",
   "main": "out/init.lua",
   "scripts": {
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@flamework/core": "^1.2.3",
-    "@rbxts/planck": "^0.1.2",
+    "@rbxts/planck": "0.1.3-rc.0",
     "rbxts-transformer-flamework": "^1.2.3"
   }
 }
