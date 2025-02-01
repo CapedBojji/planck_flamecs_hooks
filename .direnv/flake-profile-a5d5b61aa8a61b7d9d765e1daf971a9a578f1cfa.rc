@@ -14,15 +14,15 @@ CONFIG_SHELL='/nix/store/p6k7xp1lsfmbdd731mlglrdj2d66mr82-bash-5.2p37/bin/bash'
 export CONFIG_SHELL
 CXX='g++'
 export CXX
-DEVENV_DOTFILE='/home/CapedBaldy/planck/planck_rewire_ts/.devenv'
+DEVENV_DOTFILE='/home/CapedBaldy/planck/planck_flamecs_hooks/.devenv'
 export DEVENV_DOTFILE
 DEVENV_PROFILE='/nix/store/f4xga9azljcj98iskddjx7jflsm1iz76-devenv-profile'
 export DEVENV_PROFILE
-DEVENV_ROOT='/home/CapedBaldy/planck/planck_rewire_ts'
+DEVENV_ROOT='/home/CapedBaldy/planck/planck_flamecs_hooks'
 export DEVENV_ROOT
-DEVENV_RUNTIME='/tmp/devenv-4f209f8'
+DEVENV_RUNTIME='/tmp/devenv-ac57052'
 export DEVENV_RUNTIME
-DEVENV_STATE='/home/CapedBaldy/planck/planck_rewire_ts/.devenv/state'
+DEVENV_STATE='/home/CapedBaldy/planck/planck_flamecs_hooks/.devenv/state'
 export DEVENV_STATE
 DEVENV_TASKS='[{"after":[],"before":[],"command":"/nix/store/f3fnavlddz11lf4z971pya4l5vn92zdr-devenv-enterShell","description":"Runs when entering the shell","input":{},"name":"devenv:enterShell","status":null},{"after":[],"before":[],"command":null,"description":"Runs when entering the test environment","input":{},"name":"devenv:enterTest","status":null},{"after":[],"before":[],"command":null,"description":"","input":{},"name":"devenv:files","status":null}]'
 export DEVENV_TASKS
@@ -47,13 +47,13 @@ NIX_CC='/nix/store/4apajimszc47rxwcpvc3g3rj2icinl71-gcc-wrapper-13.3.0'
 export NIX_CC
 NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu='1'
 export NIX_CC_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu
-NIX_CFLAGS_COMPILE=' -frandom-seed=1xyiqnrf3k -isystem /nix/store/aj86b5andix94xn08krg56wisfcy5cwy-nodejs-23.2.0/include -isystem /nix/store/aj86b5andix94xn08krg56wisfcy5cwy-nodejs-23.2.0/include'
+NIX_CFLAGS_COMPILE=' -frandom-seed=fdyfaf07ly -isystem /nix/store/aj86b5andix94xn08krg56wisfcy5cwy-nodejs-23.2.0/include -isystem /nix/store/aj86b5andix94xn08krg56wisfcy5cwy-nodejs-23.2.0/include'
 export NIX_CFLAGS_COMPILE
 NIX_ENFORCE_NO_NATIVE='1'
 export NIX_ENFORCE_NO_NATIVE
 NIX_HARDENING_ENABLE='bindnow format fortify fortify3 pic relro stackprotector strictoverflow zerocallusedregs'
 export NIX_HARDENING_ENABLE
-NIX_LDFLAGS='-rpath /home/CapedBaldy/planck/planck_rewire_ts/outputs/out/lib '
+NIX_LDFLAGS='-rpath /home/CapedBaldy/planck/planck_flamecs_hooks/outputs/out/lib '
 export NIX_LDFLAGS
 NIX_NO_SELF_RPATH='1'
 NIX_PKG_CONFIG_WRAPPER_TARGET_HOST_x86_64_unknown_linux_gnu='1'
@@ -81,7 +81,7 @@ RANLIB='ranlib'
 export RANLIB
 READELF='readelf'
 export READELF
-ROKIT_ROOT='/home/CapedBaldy/planck/planck_rewire_ts/.rokit'
+ROKIT_ROOT='/home/CapedBaldy/planck/planck_flamecs_hooks/.rokit'
 export ROKIT_ROOT
 SIZE='size'
 export SIZE
@@ -155,7 +155,7 @@ name='devenv-shell-env'
 export name
 nativeBuildInputs='/nix/store/cddz2hc85bhzlrx0r2rb07zpdabdb1lf-devenv /nix/store/91f5mz8s8iv7445wdscjf9jahyaadv9c-rokit-v1.0.0 /nix/store/rzxqj4y899lcr3c2rx92pf457dk6086w-pnpm-9.14.4 /nix/store/aj86b5andix94xn08krg56wisfcy5cwy-nodejs-23.2.0 /nix/store/16h31npnbgpkhxp1041dsifiklbw4mpr-pkg-config-wrapper-0.29.2'
 export nativeBuildInputs
-out='/home/CapedBaldy/planck/planck_rewire_ts/outputs/out'
+out='/home/CapedBaldy/planck/planck_flamecs_hooks/outputs/out'
 export out
 outputBin='out'
 outputDev='out'
@@ -186,7 +186,7 @@ preConfigurePhases=' updateAutotoolsGnuConfigScriptsPhase'
 declare -a preFixupHooks=('_moveToShare' '_multioutDocs' '_multioutDevs' )
 preferLocalBuild='1'
 export preferLocalBuild
-prefix='/home/CapedBaldy/planck/planck_rewire_ts/outputs/out'
+prefix='/home/CapedBaldy/planck/planck_flamecs_hooks/outputs/out'
 declare -a propagatedBuildDepFiles=('propagated-build-build-deps' 'propagated-native-build-inputs' 'propagated-build-target-deps' )
 propagatedBuildInputs=''
 export propagatedBuildInputs
@@ -203,7 +203,7 @@ if [ -f "$DEVENV_DOTFILE/load-exports" ]; then
   source "$DEVENV_DOTFILE/load-exports"
 fi
 
-mkdir -p /home/CapedBaldy/planck/planck_rewire_ts/.rokit
+mkdir -p /home/CapedBaldy/planck/planck_flamecs_hooks/.rokit
 echo "🚀 Welcome to enhanced-dev-shell!"
 echo
 
@@ -252,8 +252,8 @@ then
 fi
 unset HOST_PATH NIX_BUILD_CORES __structuredAttrs buildInputs buildPhase builder depsBuildBuild depsBuildBuildPropagated depsBuildTarget depsBuildTargetPropagated depsHostHost depsHostHostPropagated depsTargetTarget depsTargetTargetPropagated dontAddDisableDepTrack doCheck doInstallCheck nativeBuildInputs out outputs patches phases preferLocalBuild propagatedBuildInputs propagatedNativeBuildInputs shell shellHook stdenv strictDeps
 
-mkdir -p /tmp/devenv-4f209f8
-ln -snf /tmp/devenv-4f209f8 /home/CapedBaldy/planck/planck_rewire_ts/.devenv/run
+mkdir -p /tmp/devenv-ac57052
+ln -snf /tmp/devenv-ac57052 /home/CapedBaldy/planck/planck_flamecs_hooks/.devenv/run
 
 '
 export shellHook
