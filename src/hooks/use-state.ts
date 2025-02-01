@@ -6,7 +6,7 @@ interface Storage<T> {
         value: T;
     }
 }
-export function useState<T>(initialValue: T, discriminator: unknown, key?: Modding.Caller<"uuid">): LuaTuple<[T, (newValue: T) => void]> {
+export function useState<T>(initialValue: T, discriminator?: unknown, key?: Modding.Caller<"uuid">): LuaTuple<[T, (newValue: T) => void]> {
     assert(key, "Attempted to use useState without a key.");
     const storage = useHookState<Storage<T>>(key, discriminator);
     if (!storage.data) {
