@@ -7,7 +7,7 @@ interface Storage<T> {
     dependencies?: Array<unknown>;
 }
 
-export function useMemo<T extends unknown>(callback: Callback, dependencies?: Array<unknown>, discriminator?: unknown, key?: Modding.Caller<"uuid">): T {
+export function useMemo<T extends unknown>(callback: () => T, dependencies?: Array<unknown>, discriminator?: unknown, key?: Modding.Caller<"uuid">): T {
     assert(key, "Attempted to use useMemo without a key.");
     const storage = useHookState<Storage<T>>(key, discriminator);
     if (!dependencies || !storage.dependencies || !Phantom.Array.equals(storage.dependencies, dependencies)) {
