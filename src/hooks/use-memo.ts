@@ -14,5 +14,5 @@ export function useMemo<T>(callback: Callback, dependencies?: Array<unknown>, di
         storage.value = callback();
         storage.dependencies = dependencies;
     }
-    return storage.value;
+    return storage.value as T;
 }
