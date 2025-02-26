@@ -17,49 +17,17 @@ interface HookStorage<T> {
 export class PlanckFlamecsHooksPlugin implements Plugin {
 	private readonly systemData: Map<SystemFn<unknown[]>, {
 		system: SystemFn<unknown[]>;
-		deltaTime: number;
-		logs: unknown[];
 		data: Record<string, HookStorage<unknown>>;
 	}> = new Map();
-	private readonly phaseData: Map<Phase, {
-		lastTime: number;
-		deltaTime: number;
-		currentTime: number;
-	}> = new Map();
-
-	private setupPhase(phase: Phase): void {
-		this.phaseData.set(phase, {
-			lastTime: os.clock(),
-			deltaTime: 0,
-			currentTime: os.clock(),
-		});
-	}
-
-	private updatePhase(phase: Phase): void {
-		let data = this.phaseData.get(phase);
-		if (data === undefined) {
-			this.setupPhase(phase);
-			data = this.phaseData.get(phase)!;
-		}
-		data.deltaTime = data.currentTime - data.lastTime;
-		data.lastTime = data.currentTime;
-		data.currentTime = os.clock();
-	}
 
 
 
 
 	build(schedular: Scheduler<unknown[]>): void {
-		schedular._orderedPhases.forEach(phase => {
-			this.setupPhase(phase);
-		})
-		schedular._addHook(schedular.Hooks.PhaseBegan, (phase) => {
-			this.updatePhase(phase);
-		})
 		schedular._addHook(schedular.Hooks.SystemAdd, (info) => {
 			const SystemInfo = info.system;
 			const system = SystemInfo.system;
-			this.systemData.set(system, { system, deltaTime: 0, logs: [], data: {} });
+			this.systemData.set(system, { system, data: {} });
 		})
 		schedular._addHook(schedular.Hooks.SystemRemove, (info) => {
 			const SystemInfo = info.system;
@@ -80,11 +48,8 @@ export class PlanckFlamecsHooksPlugin implements Plugin {
 			const system = info.system.system;
 			const phase = info.system.phase;
 			const nextFn = info.nextFn;
-			const phaseData = this.phaseData.get(phase);
-			assert(phaseData !== undefined, "Phase data not found"); // Should never happen
 			const data = this.systemData.get(system);
 			assert(data !== undefined, "System data not found"); // Should never happen
-			data.deltaTime = phaseData.deltaTime;
 			return () => {
 				secondaryStack.push(data)
 				start(data.data, () => {
